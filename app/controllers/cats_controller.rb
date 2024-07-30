@@ -5,13 +5,10 @@ class CatsController < ApplicationController
   end
 
   def show
-    @rental_requests = Cat.select("cats.*, start_date, end_date")
-                          .where(id: params[:id])
-                          .left_joins(:cat_rental_requests)
-                          .order("start_date ASC")
+    @cat = Cat.find_by(id: params[:id])
+    @rental_requests = @cat.cat_rental_requests
 
-    if !@rental_requests.empty?
-      @cat = @rental_requests[0]
+    if @cat
       render :show
     else
       redirect_to cats_url
