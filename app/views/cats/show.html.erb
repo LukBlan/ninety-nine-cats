@@ -5,4 +5,15 @@
 <p><%= @cat.sex %></p>
 <p><%= @cat.description %></p>
 
+<h2>Rental Request</h2>
+
+<ul>
+  <% @rental_requests.each do |rental_request| %>
+    <li>
+      <p><%= rental_request.start_date %></p>
+      <p><%= rental_request.end_date %></p>
+    </li>
+  <% end %>
+</ul>
+
 <a href="<%= edit_cat_url(@cat) %>">Edit</a>
