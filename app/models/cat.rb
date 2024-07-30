@@ -6,6 +6,8 @@ class Cat < ApplicationRecord
   validates :color, inclusion: COLORS
   validates :sex, inclusion: VALID_SEX
 
+  has_many :cat_rental_requests, dependent: :destroy
+
   def age
     birthday = self.birth_date
     today_date = Date.today
