@@ -1,10 +1,11 @@
-<h1> All Cats</h1>
 
-<ul>
-  <%= render @cats %>
-</ul>
-
-<br/>
-<br/>
-
-<a href="<%= new_cat_url %>">Create</a>
+<section>
+  <div class="cats-section-header">
+    <h2>All The Cats in the World</h2>
+    <a>Add Cat<i class="plus-sign">+</i></a>
+    <a>Rental Cat<i class="plus-sign">+</i></a>
+  </div>
+  <ul class="cat-list">
+    <%= render @cats %>
+  </ul>
+</section>

@@ -6,10 +6,97 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <style>
+      *,
+      *::after,
+      *::before {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        background: #050587;
+        color: gold;
+        font-weight: bold;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      section {
+        align-self: center;
+      }
+
+      .session-menu {
+        display: flex;
+        font-size: 1.5rem;
+        list-style: none;
+        gap: 1rem;
+      }
+
+      .cats-section-header {
+        display: flex;
+        gap: 2rem;
+        padding: 1rem;
+        background: #050587;
+        color: gold;
+        align-items: center;
+      }
+
+      .plus-sign {
+        font-weight: bolder;
+      }
+
+      .cat-list {
+        display: grid;
+        background: #9191e5;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0.5rem;
+        gap: 1rem;
+        list-style: none;
+      }
+
+      .cat {
+        background: #050587;
+        color: gold;
+        text-align: center;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cat a {
+        color: inherit;
+      }
+    </style>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
+    <nav>
+      <h1>99 Cats</h1>
+
+      <ul class="session-menu">
+        <li>Sign In</li>
+        <li>Sign Out</li>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
