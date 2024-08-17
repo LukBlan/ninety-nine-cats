@@ -3,7 +3,7 @@
 <% url = persisted ? cat_url(cat) : cats_url  %>
 <% text = persisted ? "Update" : "Create" %>
 
-<form action="<%= url %>" method="post">
+<form class="session-form" action="<%= url %>" method="post">
   <% if persisted %>
     <input type="hidden" name="_method" value="patch" />
   <% end %>

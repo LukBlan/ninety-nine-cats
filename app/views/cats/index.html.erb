@@ -2,8 +2,8 @@
 <section>
   <div class="cats-section-header">
     <h2>All The Cats in the World</h2>
-    <a>Add Cat<i class="plus-sign">+</i></a>
-    <a>Rental Cat<i class="plus-sign">+</i></a>
+    <a href="<%= new_cat_url %>">Add Cat<i class="plus-sign">+</i></a>
+    <a href="<%= new_cat_rental_request_url %>">Rental Cat<i class="plus-sign">+</i></a>
   </div>
   <ul class="cat-list">
     <%= render @cats %>

@@ -1,0 +1,20 @@
+<div class="session-section">
+  <h2><%= button_text %></h2>
+
+  <form class="session-form" action="<%= method_url %>" method="post">
+    <ul class="form-list">
+      <li>
+        <label for="username">Username</label>
+        <input id="username" name="user[username]" />
+      </li>
+
+      <li>
+        <label for="password">Password</label>
+        <input id="password" name="user[password]" />
+      </li>
+    </ul>
+
+    <button type="submit"><%= button_text %></button>
+  </form>
+</div>
+

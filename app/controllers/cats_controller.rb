@@ -1,4 +1,6 @@
 class CatsController < ApplicationController
+  before_action :redirect_to_login, only: [:new, :create, :edit, :update]
+
   def index
     @cats = Cat.all
     render :index
