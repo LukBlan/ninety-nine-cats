@@ -6,6 +6,7 @@ class CatRentalRequest < ApplicationRecord
   validate :check_approved_overlapping_request
 
   belongs_to :cat
+  belongs_to :requester, foreign_key: :requester_id, class_name: "User"
 
   def check_approved_overlapping_request
     result = overlapping_request.where(status: "APPROVED").count

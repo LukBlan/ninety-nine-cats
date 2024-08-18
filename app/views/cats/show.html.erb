@@ -13,6 +13,7 @@
       <p><%= rental_request.start_date %></p>
       <p><%= rental_request.end_date %></p>
       <p><%= rental_request.status %></p>
+      <p><%= rental_request.requester.username %></p>
 
       <% if rental_request.pending? && user_own_cat(@cat) %>
         <form method="post" action="<%= approve_cat_rental_request_url(rental_request.id) %>">

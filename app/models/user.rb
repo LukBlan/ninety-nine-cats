@@ -4,7 +4,9 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 6}, allow_nil: true
   before_validation :hash_password
   after_validation :create_session_token
+
   has_many :cats
+  has_many :cat_rental_requests, foreign_key: :requester_id, class_name: "CatRentalRequest"
 
   def password=(password)
     @password = password
