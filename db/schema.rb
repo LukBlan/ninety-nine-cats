@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_12_223939) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_18_205532) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,9 +34,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_223939) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["birth_date"], name: "index_cats_on_birth_date"
     t.index ["name"], name: "index_cats_on_name"
     t.index ["sex"], name: "index_cats_on_sex"
+    t.index ["user_id"], name: "index_cats_on_user_id"
   end
 
   create_table "qrs", id: :serial, force: :cascade do |t|
@@ -53,4 +55,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_223939) do
   end
 
   add_foreign_key "cat_rental_requests", "cats"
+  add_foreign_key "cats", "users"
 end

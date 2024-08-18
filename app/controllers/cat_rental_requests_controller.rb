@@ -1,5 +1,6 @@
 class CatRentalRequestsController < ApplicationController
   before_action :redirect_to_login, only: [:new, :create, :approve, :deny]
+  before_action :redirect_on_not_owned_cat, only: [:approve, :deny]
   def new
     @cats = Cat.all
     render :new

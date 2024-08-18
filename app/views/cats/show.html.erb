@@ -14,7 +14,7 @@
       <p><%= rental_request.end_date %></p>
       <p><%= rental_request.status %></p>
 
-      <% if rental_request.pending? %>
+      <% if rental_request.pending? && user_own_cat(@cat) %>
         <form method="post" action="<%= approve_cat_rental_request_url(rental_request.id) %>">
           <button type="submit">Approve</button>
         </form>
@@ -27,4 +27,6 @@
   <% end %>
 </ul>
 
-<a href="<%= edit_cat_url(@cat) %>">Edit</a>
+<% if user_own_cat(@cat) %>
+  <a href="<%= edit_cat_url(@cat) %>">Edit</a>
+<% end %>
