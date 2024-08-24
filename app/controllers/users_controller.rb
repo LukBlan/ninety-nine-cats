@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     else
       render json: {message: user.errors.full_messages}
     end
-
   end
 
   private

@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
   end
 
   def login(user)
-    session[:session_token] = user.session_token
+    session_token = Session.create_user_session(user)
+    session[:session_token] = session_token
     @current_user = user
   end
 
@@ -20,7 +21,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by(session_token: session[:session_token])
+    session_token = session[:session_token]
+    @current_user ||= User.find_by_session_token(session_token)
   end
 
   def user_own_cat(id)
